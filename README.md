@@ -1,37 +1,97 @@
+## 📝 System Workflow
 
-Breakdown of the Diagram:
-Landing Page – User explores features, optional contact form stored in DB.
+### 1. Landing Page  
+- Users explore platform features.  
+- Optional **Contact Form** data is stored in the database.  
 
-Authentication – Clerk manages OAuth sign-in.
+### 2. Authentication  
+- Handled via **Clerk** for secure OAuth sign-in.  
 
-Dashboard – Past interviews & questions accessible.
+### 3. Dashboard  
+- Users can view past interviews and generated questions.  
 
-Create Interview – User provides job info → Gemini generates questions → saved to DB.
+### 4. Create Interview  
+- User provides job details.  
+- **Gemini API** generates relevant interview questions.  
+- Questions are saved to the database.  
 
-Start Interview – Webcam + TTS (text-to-speech) display questions.
+### 5. Start Interview  
+- Interview begins with **webcam + TTS (Text-to-Speech)** for question delivery.  
 
-Record Answer – User answers → Gemini transcribes + analyzes → stores transcript, feedback, score.
+### 6. Record Answer  
+- User responds via webcam/microphone.  
+- **Gemini** transcribes and analyzes the response.  
+- Transcript, feedback, and score are stored in the database.  
 
-Feedback – User reviews performance.
+### 7. Feedback  
+- User can review detailed performance reports and insights.  
 
-Upgrade Plan – If needed, upgrade via pricing → Stripe → Dashboard refreshed.
+### 8. Upgrade Plan  
+- Users can upgrade via **Pricing Page → Stripe Integration**.  
+- Dashboard updates automatically after successful payment.  
+
+
 <img width="1849" height="3840" alt="Mermaid Chart - Create complex, visual diagrams with text  A smarter way of creating diagrams -2025-09-02-155324" src="https://github.com/user-attachments/assets/edc3e28d-909b-4153-89ec-c7cec5ab0bdc" />
 
-System Architecture Diagram:
+## System Architecture
+
+### Overview
+The system is designed to support mock interviews with automatic question handling, user responses, scoring, and newsletter integration.
+
+### Components
+
+- **Frontend (React.js)**
+  - Provides UI for mock interview selection, answering questions, and viewing feedback.
+  - Handles form submissions for newsletter subscription.
+
+- **Backend (Node.js / Django / Express)**
+  - API endpoints for mock interviews, questions, answers, and newsletter.
+  - Business logic for evaluating user answers, storing feedback, and managing sessions.
+
+- **Database (MySQL / PostgreSQL)**
+  - Stores mock interview data, questions, user answers, and newsletter subscriptions.
+
+- **AI/ML Layer (Optional)**
+  - Evaluates user answers (transcripts, feedback, scoring).
+  - Provides recommendations for improvement.
+
+
 <img width="846" height="466" alt="image" src="https://github.com/user-attachments/assets/393f3736-d5c1-4d26-8904-945807c74ba1" />
+## Database Schema
 
+### Entities & Attributes
 
-Entities: Four tables (MockInterview, Question, UserAnswer, Newsletter).
+- **MockInterview**
+  - `mockId` (Primary Key, INT, AUTO_INCREMENT)
+  - `jobTitle` (VARCHAR)
+  - `createdAt` (TIMESTAMP)
 
-Attributes: Each column is listed with type + PK/FK.
+- **Question**
+  - `questionId` (Primary Key, INT, AUTO_INCREMENT)
+  - `mockIdRef` (Foreign Key → MockInterview.mockId)
+  - `questionText` (TEXT)
 
-Relationships:
+- **UserAnswer**
+  - `answerId` (Primary Key, INT, AUTO_INCREMENT)
+  - `mockIdRef` (Foreign Key → MockInterview.mockId)
+  - `questionIdRef` (Foreign Key → Question.questionId)
+  - `answerText` (TEXT)
+  - `transcript` (TEXT)
+  - `feedback` (TEXT)
+  - `score` (INT)
 
-One MockInterview → many Questions.
+- **Newsletter**
+  - `newsletterId` (Primary Key, INT, AUTO_INCREMENT)
+  - `email` (VARCHAR)
+  - `mockIdRef` (Optional Foreign Key → MockInterview.mockId)
 
-One MockInterview → many UserAnswers.
+---
 
-UserAnswer.mockIdRef → references MockInterview.mockId.
+### Relationships
 
-Newsletter loosely connects to MockInterview (optional, from contact form)
+- One **MockInterview** → Many **Questions**
+- One **MockInterview** → Many **UserAnswers**
+- `UserAnswer.mockIdRef` → references **MockInterview.mockId**
+- **Newsletter** loosely connects to **MockInterview** (optional, from contact form)
+
 <img width="2228" height="3840" alt="Mermaid Chart - Create complex, visual diagrams with text  A smarter way of creating diagrams -2025-09-02-155909" src="https://github.com/user-attachments/assets/9503bcee-b47b-4290-8aa7-5dd9857cc4d4" />
