@@ -44,14 +44,14 @@ The system is designed to support mock interviews with automatic question handli
   - Provides UI for mock interview selection, answering questions, and viewing feedback.
   - Handles form submissions for newsletter subscription.
 
-- **Backend (Node.js / Django / Express)**
+- **Backend (Node.js / Express)**
   - API endpoints for mock interviews, questions, answers, and newsletter.
   - Business logic for evaluating user answers, storing feedback, and managing sessions.
 
-- **Database (MySQL / PostgreSQL)**
+- **Database (PostgreSQL)**
   - Stores mock interview data, questions, user answers, and newsletter subscriptions.
 
-- **AI/ML Layer (Optional)**
+- **AI/ML Layer **
   - Evaluates user answers (transcripts, feedback, scoring).
   - Provides recommendations for improvement.
 
