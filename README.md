@@ -31,7 +31,6 @@
 - Dashboard updates automatically after successful payment.  
 
 
-<img width="1849" height="3840" alt="Mermaid Chart - Create complex, visual diagrams with text  A smarter way of creating diagrams -2025-09-02-155324" src="https://github.com/user-attachments/assets/edc3e28d-909b-4153-89ec-c7cec5ab0bdc" />
 
 ## System Architecture
 
