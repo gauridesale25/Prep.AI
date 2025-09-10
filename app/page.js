@@ -25,21 +25,21 @@ const page = () => {
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
             <h1 className="text-3xl font-bold text-primary">AI Mock Interview</h1>
             <nav className="flex flex-col sm:flex-row flex-wrap items-center justify-between mt-4 md:mt-0 space-y-4 sm:space-y-0 sm:space-x-4">
-              <div>
-                <iframe
-                  src="https://github.com/sponsors/modamaan/button"
-                  title="Sponsor modamaan on GitHub"
-                  height="32"
-                  width="114"
-                  className="border-0 rounded-lg">
-                </iframe>
-              </div>
+              // <div>
+              //   <iframe
+              //     src="https://github.com/sponsors/modamaan/button"
+              //     title="Sponsor modamaan on GitHub"
+              //     height="32"
+              //     width="114"
+              //     className="border-0 rounded-lg">
+              //   </iframe>
+              // </div>
 
               <div>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://github.com/modamaan/Ai-mock-Interview">
+                  href="https://github.com/gauridesale25/Prep.AI/">
                   <FaGithub className="w-10 h-8" />
                 </a>
               </div>
