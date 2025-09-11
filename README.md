@@ -48,7 +48,7 @@ The system is designed to support mock interviews with automatic question handli
   - Business logic for evaluating user answers, storing feedback, and managing sessions.
 
 - **Database (PostgreSQL)**
-  - Stores mock interview data, questions, user answers, and newsletter subscriptions.
+  - Stores mock interview data, questions, user answers, and newsletter subscriptions.Has 4 tables.
 
 - **AI/ML Layer **
   - Evaluates user answers (transcripts, feedback, scoring).
